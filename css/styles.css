@@ -16,6 +16,7 @@
   --primary-white-color: #ffffff;
   --sec-bgr-color: #2f303a;
   --thirth-bgr-color: #f5f4fa;
+  --primary-icon-color:#AFB1B8;
 }
 /**задає ширину блоку згідно ширини(а не контенту)*/
 /* html {
@@ -177,10 +178,24 @@ p {
 /*****main index.html*************** */
 
 /* стайл hero */
-.hero {
+.hero.img-hero{
+ 
+  max-width: 1600px;
+  height: 600px;
+  margin-left: auto;
+  margin-right: auto;  
+  padding-top: 200px;
+
   text-align: center;
   background-color: var(--sec-bgr-color);
+
+  background-image:linear-gradient(to right, rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4)), url("../images/hero.jpg") ;
+  background-repeat: no-repeat;  
+  background-position: center;
+  background-size: cover;  
 }
+
 /* hero titel*/
 .titel {
   font-weight: 900;
@@ -198,7 +213,8 @@ p {
 .button.main {
   padding: 10px 32px;
   min-width: 216px;
-
+align-items: center;
+  justify-content: center;
   font-family: inherit;
   font-weight: 700;
   font-size: 16px;
@@ -223,25 +239,87 @@ p {
   letter-spacing: 0.03em;
   color: var(--title-text-color);
 }
+/*стайлз картинка над "переваги"*/
+ .sub-titel.feacher::before{
+  content: "";
+  display: block;
+  width: 100%;
+  height: 120px;
+  margin-bottom: 30px;   
+  background-repeat: no-repeat;
+  background-position: center;  
+  background-color: var(--thirth-bgr-color);
+  border-radius: 4px;
+}
+.sub-titel.feacher.one::before {
+  background-image: url(../images/atantionDetails.svg);
+}
+.sub-titel.feacher.twoo::before {
+  background-image: url(../images/clock.svg);
+}.sub-titel.feacher.three::before {
+  background-image: url(../images/diagram.svg);
+}.sub-titel.feacher.four::before {
+  background-image: url(../images/astronaut.svg);
+}
+
 .list.team,
 .list.to-work,
-.list.feacher {
+.list.feacher,
+.list.clients,
+.list.media {
   display: flex;
 }
-/*стилізує списки переваги, команда*/
+/*стилізує списки переваги, команда, клієнти*/
 .list.team.item,
 .list.feacher .item {
   /* width: 270px; */
   width: calc((100%-90px) / 4);
 }
+/*розббиває секцію client на 6 блоків*/
+.list.clients .item{
+  width: calc((100%-150px)/6);
+  
+}
+/*стайл клієнт*/
+.item>.client{
+  display: flex;
+  height: 92px;
+  content: "";  
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid var(--primary-icon-color);
+  border-radius: 4px;  
+}
+.item>.client:hover,
+.item>.client:focus{
+  background-color: var(--accent-color);
+}
+.client.a{
+  background-image: url(../images/1client.svg);
+}
+.client.b{
+  background-image: url(../images/2client.svg);
+}
+.client.c{
+background-image: url(../images/3client.svg);
+}
+.client.d{
+  background-image: url(../images/4client.svg);
+}
+.client.e{
+  background-image: url(../images/5client.svg);
+}
+.client.f{
+  background-image: url(../images/6client.svg);
+}
+
 /*стайл списків у секції*/
 .list > .item:not(:last-child),
 .list.feacher > .item:not(:last-child),
 .list.to-work > .item:not(:last-child),
-.list.team>.item:not(:last-child) {
-  margin-right: 30px;
-
- 
+.list.team>.item:not(:last-child),
+.list.clients>.item:not(:last-child) {
+  margin-right: 30px; 
 }
 
 /* стайл секція переваги */
@@ -267,6 +345,13 @@ p {
 .team-bg {
   background-color: var(--thirth-bgr-color);
 }
+/*стайлз team card*/
+.list.team>.item{
+  background-color: var(--primary-white-color);
+  border-radius: 4px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+
+}
 /* стайл секція команда */
 .name {
   font-weight: 500;
@@ -290,7 +375,10 @@ p {
   padding-top: 60px;
   padding-bottom: 60px;
 }
-
+/*стайл контейнерів у футері*/
+.section-footer>.container.flex{
+  align-items: center;
+}
 
 .adr {
   margin-top: 20px;
@@ -310,6 +398,45 @@ p {
 .adr .contacts-footer:focus {
   color: var(--accent-color);
 }
+/**стайл секція медіа приєднуйтесь*/
+.section-media{
+  margin-left: 70px;
+  /* background-color: #2196f3; */
+}
+.media-titel{
+  margin-bottom: 20px;
+
+ font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 00.03em;
+  text-transform: uppercase;
+  color:var(--primary-white-color);
+}
+/*стайл медіа елемент *li*/
+.list.media .item:not(:last-child){
+  margin-right: 10px;;
+}
+.list.media>.item{ 
+  width:44px;
+  background-color: rgba(255, 255, 255, 0.1);
+    /* background-size: 44px 44px; */
+    border-radius: 50%;
+  
+}
+.item>.media{
+  display: flex;
+  height: 44px;
+  contain: "";
+  background-image: url("../images/fbFooter.svg");
+  background-repeat: no-repeat;
+  background-position: center; 
+}
+.item>.media.a{
+background-image: url("../images/fbFooter.svg");
+}
+
+ 
 
 /******main portfolio.htlm************************************/
 /* стайл кнопка меню */
@@ -323,8 +450,16 @@ p {
   line-height: 1.62;
   color: var(--primary-white-color);
   background-color: var(--accent-color);
+  background-size: 20px 20px;
+  background-position: center;
 }
 
+.button.current:hover,
+.button.current:active,
+.button.primary:hover,
+.button.primary:active{
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+}
 .button.primary {
   padding: 6px 22px;
   min-width: 73px;
@@ -365,6 +500,11 @@ p {
   margin-right: 30px;
   margin-bottom: 30px;
 }
+.list.flex.wrap>.item:hover,
+.list.flex.wrap>.item:active{
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
 /**кожен 3 елем без відступа**/
 .list.flex.wrap > .item:nth-child(3n) {
   margin-right: 0;
@@ -378,5 +518,6 @@ p {
   width:370 px;
   padding: 20px 24px;
   border: 1px solid #eeeeee;
+  border-top: 0;
 
 }
