@@ -132,19 +132,17 @@ p {
 
 .contact-item,
 .menu-item {
+  display: block; 
+  color: var(--title-text-color);
+}
+.contacts-link,
+.menu-link{
   display: block;
-  padding-top: 32px;
-  padding-bottom: 32px;
+  padding: 32px 0;
+
   color: var(--title-text-color);
 }
 
-/* .site-nav .link:hover,
-.site-nav .link:focus {
-  color: var(--accent-color);
-} */
-.site-nav .link-nav {
-  color: var(--title-text-color);
-}
 .site-nav .link.current {
   color: var(--accent-color);
 }
@@ -164,11 +162,12 @@ p {
   letter-spacing: 0.02em;
   color: var(--primary-text-color);
 }
+.menu-link:hover,
+
 .link:hover,
 .link:focus,
 .link:hover .icon,
-.link:focus .icon
- {
+.link:focus .icon {
   color: var(--accent-color);
   fill: var(--accent-color);
 }
@@ -183,6 +182,7 @@ p {
   background-color: var(--thirth-bgr-color);
   border-color: var(--thirth-bgr-color);
 }
+.button:focus,
 .button:hover {
   color: var(--primary-white-color);
   background-color: var(--accent-color);
@@ -221,10 +221,9 @@ p {
   color: var(--primary-white-color);
 }
 /*ховає текст*/
-.opacity{
+.opacity {
   position: absolute;
-  opacity:0;
- 
+  opacity: 0;
 }
 
 /* стайл лголовна кнопка */
@@ -242,7 +241,7 @@ p {
   background-color: var(--accent-color);
 }
 .button.main:hover,
-.button.main:focus{
+.button.main:focus {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 /*стайл секції з різномірним верхнім і нижнім відступом*/
@@ -269,10 +268,9 @@ p {
   width: 100%;
   height: 120px;
   margin-bottom: 30px;
-  color:var(--title-text-color);
+  color: var(--title-text-color);
   border-radius: 4px;
   background-color: var(--thirth-bgr-color);
-  
 }
 .list.team,
 .list.to-work,
@@ -287,7 +285,6 @@ p {
   /* width: 270px; */
   width: calc((100%-90px) / 4);
 }
-
 
 /* стайл секція переваги */
 .sub-titel {
@@ -321,10 +318,10 @@ p {
 }
 /*стайл опис картка команда*/
 .item-team {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  margin-left: 32px;
-  margin-right: 32px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 32px;
+  padding-right: 32px;
   text-align: center;
 }
 /* стайл секція команда */
@@ -348,63 +345,68 @@ p {
   display: flex;
   justify-content: center;
 }
-.media-icon {
+.media-item {
+  border-radius: 50%;
+}
+.media-link {
   position: relative;
   display: flex;
-  
+
   width: 44px;
   height: 44px;
   border-radius: 50%;
-
-  fill: var(--primary-icon-color);
 }
-.svg{
+.svg {
   position: absolute;
-  top:50%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 
+  fill: var(--primary-icon-color);
 }
-.media-icon:not(:last-child) {
+.media-item:not(:last-child) {
   margin-right: 10px;
 }
-.media-icon.footer:hover,
-.media-icon.footer:focus,
-.media-icon:hover,
-.media-icon:focus {
+.media-item.footer:hover,
+.media-item:hover,
+.media-item:hover .svg,
+.media-link:focus  {
   background-color: var(--accent-color);
   fill: var(--primary-white-color);
 }
+.media-link:focus .svg{
+  fill:var(--primary-white-color);
+}
+
 /*розббиває секцію client на 6 блоків*/
-.list.clients>.item {
+.list.clients > .item {
   width: 170px;
   /* width: calc((100%-150px) / 6); */
 }
 
 /*стайл клієнт*/
-.item>.client {
+.item > .client {
   display: flex;
   height: 92px;
   justify-content: center;
-  align-items: center;;
+  align-items: center;
   border: 1px solid var(--primary-icon-color);
   border-radius: 4px;
-  fill:var(--primary-icon-color);
+  fill: var(--primary-icon-color);
 }
 
-.item>.client:hover,
-.item>.client:focus {
+.item > .client:hover,
+.item > .client:focus {
   border-color: var(--accent-color);
- fill: var(--accent-color);
+  fill: var(--accent-color);
 }
-
 
 /*стайл списків у секції*/
-.list>.item:not(:last-child),
-.list.feacher>.item:not(:last-child),
-.list.to-work>.item:not(:last-child),
-.list.team>.item:not(:last-child),
-.list.clients>.item:not(:last-child) {
+.list > .item:not(:last-child),
+.list.feacher > .item:not(:last-child),
+.list.to-work > .item:not(:last-child),
+.list.team > .item:not(:last-child),
+.list.clients > .item:not(:last-child) {
   margin-right: 30px;
 }
 /******стайл футер ****************** */
@@ -428,15 +430,16 @@ p {
 
 .adr {
   font-style: normal;
-    letter-spacing: 00.03em;
-    color: var(--primary-white-color);
+  letter-spacing: 00.03em;
+  color: var(--primary-white-color);
 }
-.adr-list{
+.adr-list {
   width: 230px;
 }
-.adr-item {
+.adr-item:not(:last-child) {
   margin-bottom: 9px;
 }
+
 .adr .contacts-footer {
   color: rgba(255, 255, 255, 0.6);
 }
@@ -472,11 +475,11 @@ p {
 .item > .media {
   display: flex;
   height: 44px;
-  
+
   background-position: center;
 }
-.media-icon.footer{
-  background-color:var(--bgr-media-footer);
+.media-item.footer {
+  background-color: var(--bgr-media-footer);
 }
 
 /******main portfolio.htlm************************************/
@@ -513,6 +516,7 @@ p {
 }
 /* стайл назва клієнт */
 .customer {
+  margin-bottom: 4px;
   font-weight: 700;
   font-size: 18px;
   line-height: 2em;
@@ -542,8 +546,9 @@ p {
   margin-right: 30px;
   margin-bottom: 30px;
 }
+ 
 .list.flex.wrap > .item:hover,
-.list.flex.wrap > .item:active {
+.list.flex.wrap > .item:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
